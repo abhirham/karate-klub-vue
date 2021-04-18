@@ -6,10 +6,11 @@ name: Host to firebase
   push:
     branches: [master]
 jobs:
-  build_and_preview:
+  firebase-deploy:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
+      - run: npm install
       - run: npm run build
       - uses: FirebaseExtended/action-hosting-deploy@v0
         with:
